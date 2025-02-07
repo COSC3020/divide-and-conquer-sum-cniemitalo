@@ -7,9 +7,12 @@ function divideAndConquerSum(a) {
 }
 
 function divideConquer(x, low, high) {
-    if (low >= high) {
+    if (low === high) {
         return x[low];
     }
+    if (high - low === 1) {
+        return x[low] + x[high]; 
+    } 
     var third = low + Math.floor((high - low) / 3);
     var twoThirds = low + 2 * Math.floor(((high - low)) / 3);
 
