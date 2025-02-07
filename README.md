@@ -27,34 +27,27 @@ Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
 
 ### My Answer
-The recurrence relation for the runtime of the algorithm I implemented is: 
-$T(n)$ {1,           if n \l 1
-
-        $3T(n/3)$,   if n > 1
-
-for n > 1, $T(n)$ = $3T(n/3)$
-
-                  = $9T(n/9)$
-                  
-                  = $3^iT(n/3^i)$ 
-                  
-solve i = log<sub>3</sub>(n)
-
-                  = nT(1)
-                  
-                  = n 
-
-Therefore the total time complexity of my algorithm is $\Theta(n)$
-This is because the comparisions to check the base cases: empty array, array of size 1, 
+The comparisions to check the base cases: empty array, array of size 1, 
 and array of size 2, all run in constant time. The calculations for third and twoThirds
 also run in constant time, as well as the return call summing all results together. 
 That leaves the 3 recursive calls, each time dividing the input size by three again, 
-giving $3T(n/3)$ as the time complexity. Evaluated out, as seen above, the final 
-time complexity is $\Theta(n)$. 
+giving $3T(n/3)$ as the time complexity. This gives the recurrence relation as: 
+
+$T(n)$ = \{ 1, if n <= 2; $3T(n/3)$, if n > 2
+
+for n > 1, $T(n)$ = $3T(n/3)$  
+                  = $9T(n/9)$  
+                  = $3^iT(n/3^i)$  
+solve i = (1/2) log<sub>3</sub>(n)  
+                  = n/2 * T(2)  
+                  = n/2 
+
+Therefore the total time complexity of my algorithm is $\Theta(n)$ as constants are ignored
+during asymptotic analysis. 
 
 ## Sources and Plagarism
 #### Sources: 
-https://www.geeksforgeeks.org/3-way-merge-sort/ (for inspiration on recusively splitting the array in thirds
+https://www.geeksforgeeks.org/3-way-merge-sort/ (for inspiration on recusively splitting the array in thirds)
 
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
