@@ -13,11 +13,12 @@ function divideConquer(x, low, high) {
     if (high - low === 1) {
         return x[low] + x[high]; 
     } 
-    var third = low + Math.floor((high - low) / 3);
-    var twoThirds = low + 2 * Math.floor(((high - low)) / 3);
+    var third = low + Math.floor((high - low + 1) / 3);
+    var twoThirds = low + Math.floor((2 * (high - low + 1)) / 3);
 
-    var left = divideConquer(x, low, third); 
-    var middle = divideConquer(x, third + 1, twoThirds);
-    var right = divideConquer(x, twoThirds + 1, high);
+    var left = divideConquer(x, low, third - 1); 
+    var middle = divideConquer(x, third, twoThirds - 1);
+    var right = divideConquer(x, twoThirds, high);
+    
     return left + middle + right;
 }
