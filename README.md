@@ -25,3 +25,20 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+### My Answer
+The recurrence relation for the runtime of the algorithm I implemented is: 
+$T(n)$ {1,           if n \leg 1
+        $3T(n/3)$,   if n > 1
+
+for n > 1, $T(n)$ = $3T(n/3)$
+                  = $9T(n/9)$
+                  = $3^iT(n/3^i)$ 
+solve i = log<sub>3</sub>(n)
+                  = nT(1)
+                  = n 
+Therefore the total time complexity of my algorithm is $\Theta(n)$
+This is because the comparisions to check the base cases: empty array, array of size 1, 
+and array of size 2, all run in constant time. The calculations for third and twoThirds
+also run in constant time, as well as the return call summing all results together. 
+Then there are 3 recursive calls, each time dividing the input size by three again, $3T(n/3)$. 
