@@ -1,29 +1,25 @@
 function divideAndConquerSum(a) {
-    //return 0 for empty array 
-    if (a.length = 0) {
-        return 0;
-    } else { 
-        return divideConquer(a, 0, a.length - 1);
-    } 
+    return divideConquer(a, 0, a.length);
 }
 
 function divideConquer(x, low, high) {
-    //single element 
-    if (low === high) {
-        return x[low];
+    //base cases
+    //empty
+    if (high - low < 1) {
+        return 0; 
     }
-    //two elements 
+    //single element 
     if (high - low === 1) {
-        return x[low] + x[high]
+        return x[low];
     } 
 
     //find split lengths
-    var third = low + Math.floor((high - low + 1) / 3);
-    var twoThirds = low + Math.floor((2 * (high - low + 1)) / 3);
+    var third = low + Math.floor((high - low) / 3);
+    var twoThirds = low + 2* Math.floor(((high - low)) / 3) + 1;
 
     //recursively split array into thirds
-    var left = divideConquer(x, low, third - 1); 
-    var middle = divideConquer(x, third, twoThirds - 1);
+    var left = divideConquer(x, low, third); 
+    var middle = divideConquer(x, third, twoThirds);
     var right = divideConquer(x, twoThirds, high);
 
     //return sum of all elements
