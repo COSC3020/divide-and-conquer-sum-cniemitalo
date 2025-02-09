@@ -30,15 +30,16 @@ most important part. Add your answer to this markdown file.
 The base cases of an empty array or array of size 1 run in constant time. The calculations 
 for third and twoThirds also run in constant time, as well as the return call summing 
 all results together. That leaves the 3 recursive calls, each time dividing the input size 
-by three again, giving $3T(n/3)$ as the time complexity. This gives the recurrence relation as: 
+by three again and summing the results, giving $3T(n/3) + 1$ as the time complexity. 
+This gives the recurrence relation as: 
 
 $T(n)$ = \{ 1, if n <= 1; $3T(n/3) + 1$, if n > 1
 
-for n > 1, $T(n)$ = $3T(n/3)$  
-                  = $9T(n/9)$  
-                  = $3^iT(n/3^i)$  
+for n > 1, $T(n)$ = $3T(n/3) + 1$  
+                  = $9T(n/9) + 2$  
+                  = $3^iT(n/3^i) + C$  
 solve i = log<sub>3</sub>(n)  
-                  = n * T(1)  
+                  = n * T(1) + C, where C is a constant 
                   = n 
 
 Therefore the total time complexity of my algorithm is $\Theta(n)$ as constants are ignored
