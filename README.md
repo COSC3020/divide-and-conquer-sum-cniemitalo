@@ -25,3 +25,30 @@ and solve it as we did in the lectures. Give the final $\Theta$ complexity.
 
 Describe your reasoning and the conclusion you've come to. Your reasoning is the
 most important part. Add your answer to this markdown file.
+
+### My Answer
+The base cases of an empty array or array of size 1 run in constant time. The calculations 
+for third and twoThirds also run in constant time, as well as the return call summing 
+all results together. That leaves the 3 recursive calls, each time dividing the input size 
+by three again and summing the results, giving $3T(n/3) + 1$ as the time complexity. 
+This gives the recurrence relation as: 
+
+$T(n)$ = \{ 1, if n <= 1; $3T(n/3) + C$, if n > 1
+
+for n > 1, $T(n)$ = $3T(n/3) + C$  
+                  = $9T(n/9) + 2C$  
+                  = $3^iT(n/3^i) + iC$  
+solve i = log<sub>3</sub>(n)  
+                  = n * T(1) + log<sub>3</sub>(n)C
+                  = n 
+
+Therefore the total time complexity of my algorithm is $\Theta(n)$. 
+
+## Sources and Plagarism
+#### Sources: 
+https://www.geeksforgeeks.org/3-way-merge-sort/ (for inspiration on recusively splitting the array in thirds)
+
+I discussed my proof for the time complexity with TA. 
+
+I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
+
