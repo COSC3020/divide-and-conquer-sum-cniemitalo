@@ -48,5 +48,7 @@ Therefore the total time complexity of my algorithm is $\Theta(n)$.
 #### Sources: 
 https://www.geeksforgeeks.org/3-way-merge-sort/ (for inspiration on recusively splitting the array in thirds)
 
+I discussed my proof for the time complexity with TA. 
+
 I certify that I have listed all sources used to complete this exercise, including the use of any Large Language Models. All of the work is my own, except where stated otherwise. I am aware that plagiarism carries severe penalties and that if plagiarism is suspected, charges may be filed against me without prior notice.
 
