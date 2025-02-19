@@ -33,17 +33,16 @@ all results together. That leaves the 3 recursive calls, each time dividing the 
 by three again and summing the results, giving $3T(n/3) + 1$ as the time complexity. 
 This gives the recurrence relation as: 
 
-$T(n)$ = \{ 1, if n <= 1; $3T(n/3) + 1$, if n > 1
+$T(n)$ = \{ 1, if n <= 1; $3T(n/3) + C$, if n > 1
 
-for n > 1, $T(n)$ = $3T(n/3) + 1$  
-                  = $9T(n/9) + 2$  
-                  = $3^iT(n/3^i) + C$  
+for n > 1, $T(n)$ = $3T(n/3) + C$  
+                  = $9T(n/9) + 2C$  
+                  = $3^iT(n/3^i) + iC$  
 solve i = log<sub>3</sub>(n)  
-                  = n * T(1) + C, where C is a constant 
+                  = n * T(1) + log<sub>3</sub>(n)C
                   = n 
 
-Therefore the total time complexity of my algorithm is $\Theta(n)$ as constants are ignored
-during asymptotic analysis. 
+Therefore the total time complexity of my algorithm is $\Theta(n)$. 
 
 ## Sources and Plagarism
 #### Sources: 
